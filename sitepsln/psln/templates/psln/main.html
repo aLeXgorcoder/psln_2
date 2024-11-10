@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Подключаем logo -->
+<link type="text/css" href="{% static 'psln/image/logo.png' %}" rel="stylesheet"/>
+<link type="text/css" href="{% static 'psln/css/index2.css' %}" rel="stylesheet"/>
+
+<!-- Фон -->
+<div class="d-flex">
+<video class="video-background" autoplay muted loop>
+    <source src="{% static 'psln/image/video.webm' %}" type="video/webm">
+</video>
+</div>
+
+<!-- Меню, logo -->
+<nav style="margin-top: 45px">
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'concerts' %}#live">КОНЦЕРТЫ</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'shop:shop' %}">МЕРЧ</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'audio' %}">АУДИО</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'video' %}">ВИДЕО</a>
+  </li>
+
+{% if user.is_authenticated %}
+  <li class="nav-item d-flex align-items-center ms-5"> <!-- `ms-3` добавляет отступ слева -->
+    <div class="nav-link active me-2" aria-current="page">{{ user.username }}</div>
+    <form method="post" action="{% url 'users:logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-link nav-link active">ВЫЙТИ</button>
+    </form>
+  </li>
+
+  {% else %}
+  <li class="nav-item d-flex align-items-center ms-5">
+    <a class="nav-link active" aria-current="page" href="{% url 'users:login' %}">ВОЙТИ</a> | <a class="nav-link active " href="{% url 'users:register' %}">Регистрация</a>
+  </li>
+  {% endif %}
+
+
+</ul>
+
+  <div class="d-flex justify-content-between p-3 m-0">
+    <a class="navbar-brand" href="{% url 'main' %}">
+      <img src="{% static 'psln/image/left_logo.png' %}" alt="ПНЕВМОСЛОН" width="220" height="50" class="d-inline-block ms-4 reverse">
+    </a>
+
+    <a class="navbar-brand" href="{% url 'main' %}">
+      <img src="{% static 'psln/image/main_logo.png' %}" alt="ПНЕВМОСЛОН" width="190" height="190" class="d-inline-block me-4 reverse">
+    </a>
+  </div>
+</nav>
+
+<!-- Ссылки на социальные сети -->
+<nav class="navbar fixed-bottom d-flex justify-content-center">
+  <a href="https://vk.com/pneumoslon?ysclid=lz5ztcj63g556588089"  target="_blank">
+    <img src="{% static 'psln/image/vk_main.png' %}" alt="VK" width="40" height="40">
+  </a>
+  <a class="mx-0" href="https://t.me/s/mashem" target="_blank">
+    <img src="{% static 'psln/image/tg_main.png' %}" alt="Telegram" width="40" height="40">
+  </a>
+  <a class="mx-0" href="https://www.youtube.com/pneumoslon" target="_blank">
+    <img src="{% static 'psln/image/youtube_main_2.png' %}" alt="YouTube" width="40" height="40">
+  </a>
+  <a class="mx-0" href="https://dzen.ru/pneumoslon" target="_blank">
+    <img src="{% static 'psln/image/dzen.png' %}" alt="Dzen" width="40" height="40">
+  </a>
+</nav>
+
+<p class="container text-center">ОСЕНЬЮ В ЕКАТЕРИНБУРГЕ,</br>
+ПИТЕРЕ И МОСКВЕ</p>
+
+<h1 class="container text-center rubik-marker-hatch-regular">«НЕБО» И «ЗЕМЛЯ»</h1>
+
+<div class="d-flex justify-content-center">
+  <button class="btn btn-buy rubik-marker-hatch-regular text-buy">КУПИТЬ БИЛЕТЫ</button>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block audio_menu %}
+
+<!-- Подключение css-файла -->
+<link type="text/css" href="{% static 'psln/css/audio.css' %}" rel="stylesheet"/>
+
+<!-- Изображения -->
+<div class="container-fluid">
+    <!-- Брызги(изображение) -->
+     <div class="text-center">
+         <img src="{% static 'psln/image/logo.png' %}" alt="Podteki Image" class="rounded hidden-controls no-select mt-5 mb-5 spin" width="400" height="400"/>
+     </div>
+
+    <!-- Маска(левая) -->
+    <div class="fixed-top px-5 py-5">
+        <div>
+            <img src="{% static 'psln/image/maska_left.png' %}" alt="Podteki Image" class="rounded float-start animate-nod hidden-controls no-select" width="300" height="300"/>
+        </div>
+
+        <!-- Маска(правая) -->
+        <div>
+            <img src="{% static 'psln/image/maska_right.png' %}" alt="Podteki Image" class="rounded float-end animate-nod hidden-controls no-select" width="300" height="300"/>
+        </div>
+    </div>
+</div>
+
+
+<!-- Меню -->
+<div class="container text-center">
+
+    {% for menu in music_menu %}
+        <button class="btn-menu text-menu mt-5"><a href="{% url 'audio_detail' menu.slug %}" class="nav-link">{{ menu.title }}</a></button>
+    {% endfor %}
+    </div>
+
+<!-- Ссылки на сервисы -->
+<nav class="navbar fixed-bottom d-flex justify-content-center">
+
+  <a class="mx-2" href="https://music.yandex.ru/artist/5129628"  target="_blank">
+    <img src="{% static 'psln/image/яндекс.png' %}" alt="VK" width="172" height="53">
+  </a>
+
+  <a class="navbar-brand mx-2" href="https://vk.com/artist/pnevmoslon" target="_blank">
+    <img src="{% static 'psln/image/вк.png' %}" alt="Telegram" width="172" height="53">
+  </a>
+
+  <a class="navbar-brand mx-2" href="https://music.apple.com/ru/artist/пневмослон/1304607165" target="_blank">
+    <img src="{% static 'psln/image/apple.png' %}" alt="YouTube" width="172" height="53">
+  </a>
+
+  <a class="navbar-brand mx-2" href="https://music.youtube.com/channel/UCOhS0_lm1cJUwK-H_Shy6Wg" target="_blank">
+    <img src="{% static 'psln/image/youtube_music.png' %}" alt="YouTube" width="172" height="53">
+  </a>
+
+  <a class="navbar-brand mx-2" href="https://open.spotify.com/artist/5ULtLONUGHfJcD7Klnie1c" target="_blank">
+    <img src="{% static 'psln/image/spotify.png' %}" alt="YouTube" width="172" height="53">
+  </a>
+</nav>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block main_menu %}
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'concerts' %}#live">Концерты</a></li>
+                <li><a href="{% url 'shop:shop' %}">Магазин мерча</a></li>
+                <li><a href="{% url 'audio' %}#music">Аудио</a></li>
+                <li><a href="{% url 'video' %}">Видео</a></li>
+            </ul>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block content %}
+<header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'shop:shop' %}">ВСЕ</a></li>
+                <li><a href="{% url 'shop:t_shirts' %}">ФУТБОЛКИ</a></li>
+                <li><a href="{% url 'shop:accessories' %}">АКСЕССУАРЫ</a></li>
+                <li><a href="{% url 'shop:hoodies' %}">ТОЛСТОВКИ</a></li>
+                <li><a href="{% url 'shop:audio' %}">АУДИО</a></li>
+            </ul>
+        </nav>
+    </header>
+<h1>ФУТБОЛКИ</h1>
+{% endblock %}

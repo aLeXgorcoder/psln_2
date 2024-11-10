@@ -1,0 +1,70 @@
+body{
+    background-color: #0f0f0f;
+}
+
+ .hidden-controls {
+            pointer-events: none; /* Отключает все события кликов для изображения */
+        }
+
+
+ .no-select {
+            user-select: none; /* Отключает выделение текста и изображений */
+            -webkit-user-select: none; /* Для браузеров на основе WebKit (Chrome, Safari) */
+            -moz-user-select: none; /* Для Firefox */
+            -ms-user-select: none; /* Для Internet Explorer и Edge */
+        }
+
+
+ .animate-nod {
+            animation: nodding 1s infinite alternate;
+        }
+
+@keyframes nodding {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(7deg); }
+        }
+
+.text-menu {
+    color: white;
+    background-color: #912323;
+    border-radius: 8px; /* Закругляет углы кнопки */
+    padding: 10px 20px; /* Дополнительно можно добавить отступы */
+    border: none; /* Удаляет рамку вокруг кнопки */
+    cursor: pointer; /* Изменяет курсор при наведении на кнопку */
+}
+
+.btn-menu:hover {
+    background-color: white;
+    color: black;
+    border-radius: 8px; /* Сохраняет закругленные углы при наведении */
+    border: none; /* Удаляет рамку вокруг кнопки при наведении */
+}
+
+.nav-link {
+    color: white; /* Белый цвет текста */
+}
+
+.nav-link.active {
+    color: #f8f9fa; /* Светлый цвет для активного пункта */
+}
+
+.rubik-marker-hatch-regular {
+  font-family: "Rubik Marker Hatch", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Определение анимации вращения */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Применение анимации вращения к изображению */
+.spin {
+    animation: spin 4s linear infinite; /* 4 секунды для одного полного оборота */
+}

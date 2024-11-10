@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block audio_menu %}
+<link type="text/css" href="{% static 'psln/css/audio_detail.css' %}" rel="stylesheet"/>
+
+<!-- Изображения -->
+<div class="container-fluid">
+    <!-- Брызги(изображение) -->
+     <div class="text-center">
+         <img src="{% static 'psln/image/logo.png' %}" alt="Podteki Image" class="rounded hidden-controls no-select mt-5 mb-5 pulse" width="400" height="400"/>
+     </div>
+
+    <!-- Маска(левая) -->
+    <div class="py-5">
+        <div class="maska-left py-5 px-5">
+            <img src="{% static 'psln/image/maska_left.png' %}" alt="Podteki Image" class="rounded float-start animate-nod hidden-controls no-select" width="300" height="300"/>
+        </div>
+
+        <!-- Маска(правая) -->
+        <div class="maska-right py-5 px-5">
+            <img src="{% static 'psln/image/maska_right.png' %}" alt="Podteki Image" class="rounded float-end animate-nod hidden-controls no-select" width="300" height="300"/>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for menu in music_menu_detail %}
+            <div class="col-md-3 mb-4">
+                <a href="{% url 'songs'  menu.slug%}">
+                <img src="{{ menu.image.url }}" alt="{{ menu.title }} image" class="img-fluid">
+                </a>
+                <a href="{% url 'songs' menu.slug %}" class="d-block text-center mt-2 rubik-marker-hatch-regular color-box-title color-box-title">{{ menu.title }}<br> <div class="color-box-subtitle">{{ menu.subtitle }}, {{ menu.date }}</div></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

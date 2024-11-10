@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Концерты</h1>
+<h3>Строго 18+</h3>
+    {% for concert in concerts %}
+<h3>{{ concert.date }} {{ concert.program }} {{ concert.club }} <button>Билеты</button> <button>Vk</button></h3>
+    {% endfor %}
+
+{% endblock %}

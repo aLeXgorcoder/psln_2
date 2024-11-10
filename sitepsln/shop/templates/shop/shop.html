@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block main_menu %}
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'concerts' %}#live">КОНЦЕРТЫ</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'shop:shop' %}">МАГАЗИН МЕРЧА</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'audio' %}#music">АУДИО</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'video' %}">ВИДЕО</a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<ul class="nav nav-pills nav-fill">
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'shop:shop' %}">ВСЕ</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'shop:t_shirts' %}">ФУТБОЛКИ</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'shop:accessories' %}">АКСЕССУАРЫ</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'shop:hoodies' %}">ТОЛСТОВКИ</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'shop:audio' %}">АУДИО</a>
+  </li>
+</ul>
+
+<h1>ВСЕ</h1>
+{% endblock %}
+
+
